@@ -31,4 +31,4 @@ if __name__ == '__main__':
     x, y = 999, 999
     stop = 100
     print('The largest palindrome made from the product of numbers below {} and {}:'.format(x, y))
-    print('{} made from the product of {} and {}'.format(*largest_palindrome(x, y)))
+    print('{} made from the product of {} and {}'.format(*max_palindrome(x, y)))
