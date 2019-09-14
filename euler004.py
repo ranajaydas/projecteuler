@@ -12,7 +12,7 @@ def is_palindrome(x: int) -> bool:
     return str(x) == str(x)[::-1]
 
 
-def largest_palindrome(x: int, y: int, stop: int = 1) -> tuple:
+def max_palindrome(x: int, y: int, stop: int = 1) -> tuple:
     """Returns largest palindrome (and multiples) from the product of any numbers below x and y (incl)."""
     palindrome_dict = {}
     for i in range(x, stop, -1):
