@@ -9,11 +9,7 @@ https://projecteuler.net/problem=3
 
 def is_palindrome(x: int) -> bool:
     """Returns true if a number is a palindrome."""
-    num_digits = len(str(x))                    # Calculate number of digits in a number
-    for i in range(int(num_digits/2)):
-        if str(x)[i] != str(x)[-1-i]:           # Check the first and last digit and move inwards
-            return False
-    return True
+    return str(x) == str(x)[::-1]
 
 
 def largest_palindrome(x: int, y: int, stop: int = 1) -> tuple:
