@@ -12,7 +12,7 @@ def is_prime(x: int) -> bool:
     return not any(x % j == 0 for j in range(x-1, 1, -1))
 
 
-def largest_prime_factor_of(n: int) -> int:
+def max_prime_factor_of(n: int) -> int:
     """Finds the largest prime factors of 'n'."""
     for i in range(int(sqrt(n) + 1), 0, -1):              # It will kill my processor if I don't square root!
         if n % i == 0 and is_prime(i):
@@ -22,4 +22,4 @@ def largest_prime_factor_of(n: int) -> int:
 if __name__ == '__main__':
     n = 600851475143
     print('Calculating largest prime factor of {}...'.format(n))
-    print('Tada ->', largest_prime_factor_of(n))
+    print('Tada ->', max_prime_factor_of(n))
