@@ -15,11 +15,11 @@ def is_prime(x: int) -> bool:
 
 def sum_prime_to(n: int) -> int:
     """Sums all primes below n."""
-    sum = 5
+    total = 5
     for i in range(5, n, 2):
         if is_prime(i):
-            sum += i
-    return sum
+            total += i
+    return total
 
 
 if __name__ == '__main__':

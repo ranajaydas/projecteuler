@@ -11,17 +11,17 @@ https://projecteuler.net/problem=6
 
 
 def sum_of_square_to(n: int) -> int:
-    sum = 0
+    total = 0
     for i in range(1, n+1):
-        sum += i ** 2
-    return sum
+        total += i ** 2
+    return total
 
 
 def square_of_sum_to(n: int) -> int:
-    sum = 0
+    total = 0
     for i in range(1, n+1):
-        sum += i
-    return sum ** 2
+        total += i
+    return total ** 2
 
 
 if __name__ == '__main__':

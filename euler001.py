@@ -9,13 +9,13 @@ https://projecteuler.net/problem=1
 
 def sum_mul_below(listofmuls: list, n: int) ->int:
     """Returns sum of all the multiples of 'listofmuls' below 'n'."""
-    sum = 0
+    total = 0
     for i in range(n):
         for mul in listofmuls:
             if i % mul == 0:
-                sum += i
+                total += i
                 break
-    return sum
+    return total
 
 
 if __name__ == '__main__':

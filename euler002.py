@@ -13,13 +13,13 @@ https://projecteuler.net/problem=2
 
 def sum_even_fib_below(n: int) -> int:
     """ Sum of all even fibonacci numbers below 'n'."""
-    sum = 0
+    total = 0
     a, b = 1, 2            # First 2 numbers of the fibonacci series
     while b < n:
         if b % 2 == 0:
-            sum += b
+            total += b
         a, b = b, a + b    # Continue the fibonacci sequence
-    return sum
+    return total
 
 
 if __name__ == '__main__':
