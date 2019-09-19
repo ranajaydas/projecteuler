@@ -19,7 +19,7 @@ import time
 
 
 def nth_triangle_num(n: int) -> int:
-    """Returns nth triangle numnber using formula n(n+1)/2."""
+    """Returns nth triangle number using formula n(n+1)/2."""
     return int(n * (n + 1) / 2)
 
 
