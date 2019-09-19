@@ -5,7 +5,6 @@ What is the greatest product of four adjacent numbers in the same direction
 
 https://projecteuler.net/problem=11
 """
-import pprint
 
 
 crazy_grid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -30,15 +29,55 @@ crazy_grid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
 
 
-# TODO: Make 3 programs to check rows, columns and diagonals
+def max_prod_rows_cols(array: list, n=4) -> int:
+    """Returns maximum product of n consecutive items in a row or a column."""
+    max = 1
+    for i in range(len(array)-n+1):
+        for j in range(len(array)):
+            # Product of rows
+            product = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j]
+            if product > max:
+                max = product
+                print('Last item:{:2}\tCoord:({:2},{:2})\tMax Product:{}'.format(array[i][j], i, j, max))
+
+            # Product of columns
+            product = array[j][i] * array[j][i+1] * array[j][i+2] * array[j][i+3]
+            if product > max:
+                max = product
+                print('Last item:{:2}\tCoord:({:2},{:2})\tMax Product:{}'.format(array[j][i], j, i, max))
+    return max
+
+
+def max_prod_diag(array: list, n=4) -> int:
+    """Returns maximum product of n consecutive items in a diagonal."""
+    max = 1
+    for i in range(len(array)-n+1):
+        for j in range(len(array)-n+1):
+            # Product of diagonals left down to right up
+            product = array[i+3][j] * array[i+2][j+1] * array[i+1][j+2] * array[i][j+3]
+            if product > max:
+                max = product
+                print('Last item:{:2}\tCoord:({:2},{:2})\tMax Product:{}'.format(array[i][j+3], i, j+3, max))
+
+            # Product of diagonals left up to right down
+            product = array[i][j] * array[i + 1][j + 1] * array[i + 2][j + 2] * array[i +3][j + 3]
+            if product > max:
+                max = product
+                print('Last item:{:2}\tCoord:({:2},{:2})\tMax Product:{}'.format(array[i+3][j+3], i+3, j+3, max))
+    return max
 
 
 if __name__ == '__main__':
     array = []
+    # Build an array from the crazy grid
     for row in crazy_grid.split('\n'):
         array.append([int(item) for item in row.split(' ')])
 
+    # Print the entire array as array[rows][cols]
     for i in range(20):
         print(array[i])
+    print()
 
-    print(array[19][2])
+    # Print the maximum product for rows, columns and diagonals
+    print('******\nMax Product of rows and columns...\n', max_prod_rows_cols(array, 4))
+    print('******\nMax Product of diagonals...\n', max_prod_diag(array, 4))
